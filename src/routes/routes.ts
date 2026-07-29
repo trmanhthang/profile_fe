@@ -11,7 +11,8 @@ const publicRoutes: AppRoute[] = [
     },
     {
         path: config.routes.login,
-        component: Login
+        component: Login,
+        layout: null,
     }
 ]
 
