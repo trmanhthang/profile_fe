@@ -9,11 +9,13 @@ import {
 import {Label} from "../ui/label";
 import {Button} from "../ui/button";
 import {Input} from "../ui/input";
-import {useLogin} from "@/hooks/useLogin";
+import {useLogin} from "@/hooks";
 import {type SubmitEventHandler, useState} from "react";
+import {Lock, User} from "lucide-react";
+import {Spinner} from "@/components/ui/spinner.tsx";
 
 function LoginForm() {
-    const {loginHandler} = useLogin();
+    const {loading, loginHandler} = useLogin();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -38,7 +40,10 @@ function LoginForm() {
                 <CardContent>
                     <div className="flex flex-col gap-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="username">Tên đăng nhập:</Label>
+                            <div className={"flex items-center"}>
+                                <User size={14} strokeWidth={2}/>
+                                <Label className={"ml-1"} htmlFor="username">Tên đăng nhập:</Label>
+                            </div>
                             <Input
                                 id="username"
                                 type="text"
@@ -49,7 +54,8 @@ function LoginForm() {
                         </div>
                         <div className="grid gap-2">
                             <div className="flex items-center">
-                                <Label htmlFor="password">Mật khẩu:</Label>
+                                <Lock size={12} strokeWidth={2.5}/>
+                                <Label className={"ml-1"} htmlFor="password">Mật khẩu:</Label>
                             </div>
                             <Input
                                 id="password"
@@ -62,9 +68,9 @@ function LoginForm() {
                     </div>
                 </CardContent>
                 <CardFooter className="flex-col gap-2">
-                    <Button type="submit" className="w-full">
+                    <Button type="submit" className="w-full" disabled={loading}>
                         Đăng nhập
-                        {/*<Spinner className={"size-4"} />*/}
+                        {loading && <Spinner className={"size-4"}/>}
                     </Button>
                     {/*<Button variant="outline" className="w-full">*/}
                     {/*    Login with Google*/}

@@ -1,1 +1,5 @@
-export {AuthServices} from "./authServices.ts"
+import {AuthServices} from "./authServices"
+import {NavigationService} from "./navigationService"
+
+
+export {AuthServices, NavigationService}

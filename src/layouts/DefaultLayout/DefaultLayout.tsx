@@ -1,6 +1,5 @@
 import type {ReactNode} from "react";
-import Header from "@/layouts/DefaultLayout/Header/Header.tsx";
-import Sidebar from "@/layouts/DefaultLayout/Sidebar/Sidebar.tsx";
+import {Header, Sidebar} from "@/layouts/components";
 
 
 function DefaultLayout({children}: { children: ReactNode }) {

@@ -1,5 +1,6 @@
 import * as axios from "axios";
 import {useAuthStore} from "@/stores";
+import {NavigationService} from "@/services";
 
 const privateApi = axios.create({
     baseURL: "/api/v1",
@@ -30,6 +31,10 @@ privateApi.interceptors.response.use(
     async (error) => {
         if (error.response.status === 401) {
 
+        }
+
+        if (error.response.status === 403) {
+            NavigationService.forbidden();
         }
 
         return Promise.reject(error);
