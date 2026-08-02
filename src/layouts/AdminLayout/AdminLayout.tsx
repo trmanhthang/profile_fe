@@ -1,18 +1,13 @@
 import type {ReactNode} from "react";
-import {AdminMenu, AdminNavbar, Header, Sidebar} from "@/layouts/components";
+import {AdminMenu, Sidebar} from "@/layouts/components";
 
 function AdminLayout({children}: { children: ReactNode }) {
     return (
         <>
-            <Header
-                children={<AdminMenu/>}
+            <Sidebar
+                menu={<AdminMenu/>}
+                children={children}
             />
-            <div className={"container"}>
-                <Sidebar children={<AdminNavbar/>}/>
-                <div className={"content"}>
-                    {children}
-                </div>
-            </div>
         </>
     )
 }

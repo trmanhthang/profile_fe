@@ -1,13 +1,12 @@
 import type {ReactNode} from "react";
-import {Header, Sidebar} from "@/layouts/components";
+import {Header} from "@/layouts/components";
 
 
 function DefaultLayout({children}: { children: ReactNode }) {
     return (
         <>
-            <Header/>
+            <Header children={<></>}/>
             <div className={"container"}>
-                <Sidebar/>
                 <div className={"content"}>
                     {children}
                 </div>
