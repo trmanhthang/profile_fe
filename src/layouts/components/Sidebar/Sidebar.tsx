@@ -9,9 +9,9 @@ import {
     BreadcrumbSeparator
 } from "@/components/ui/breadcrumb.tsx";
 
-function Sidebar({menu, children}: {menu: ReactNode, children: ReactNode}) {
+function Sidebar({menu, children}: { menu: ReactNode, children: ReactNode }) {
     return (
-        <SidebarProvider  style={
+        <SidebarProvider style={
             {
                 "--sidebar-width": "19rem",
             } as CSSProperties
@@ -19,7 +19,7 @@ function Sidebar({menu, children}: {menu: ReactNode, children: ReactNode}) {
             {menu}
             <SidebarInset>
                 <header className="flex h-16 shrink-0 items-center gap-2 px-4">
-                    <SidebarTrigger className="-ml-1" />
+                    <SidebarTrigger className="-ml-1"/>
                     <Separator
                         orientation="vertical"
                         className="mr-2 data-[orientation=vertical]:h-4"
@@ -29,14 +29,14 @@ function Sidebar({menu, children}: {menu: ReactNode, children: ReactNode}) {
                             <BreadcrumbItem className="hidden md:block">
                                 <BreadcrumbLink href="#">Build Your Application</BreadcrumbLink>
                             </BreadcrumbItem>
-                            <BreadcrumbSeparator className="hidden md:block" />
+                            <BreadcrumbSeparator className="hidden md:block"/>
                             <BreadcrumbItem>
                                 <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
                 </header>
-                {children}
+                <div className={"pr-4 pl-4"}>{children}</div>
             </SidebarInset>
         </SidebarProvider>
     )

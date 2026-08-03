@@ -24,7 +24,6 @@ export function useLogin() {
             const data: AuthenticationResponse = res.result;
             const params = {
                 publicId: data.publicId,
-                accessToken: data.accessToken,
                 fullName: data.fullName,
                 firstName: data.firstName,
                 lastName: data.lastName,
@@ -32,6 +31,7 @@ export function useLogin() {
             }
 
             user.setUser(params);
+            user.setAccessToken(data.accessToken);
 
             if (params.role === Role.ADMIN) {
                 dashboard();

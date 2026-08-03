@@ -15,7 +15,7 @@ interface MenuItem {
     active?: boolean;
     items?: {
         title: string;
-        url: string;
+        navigate?: () => void;
         icon?: LucideIcon;
     }[];
 }
@@ -46,7 +46,7 @@ function NavMain({items}: {
                                 <SidebarMenuSub>
                                     {item.items?.map((subItem) => (
                                         <SidebarMenuSubItem key={subItem.title}>
-                                            <SidebarMenuSubButton href={subItem.url}>
+                                            <SidebarMenuSubButton className={"cursor-pointer"} onClick={subItem.navigate}>
                                                 {subItem.icon && <subItem.icon/>}
                                                 <span>{subItem.title}</span>
                                             </SidebarMenuSubButton>

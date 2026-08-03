@@ -1,11 +1,8 @@
 import config from "@/config"
-import Home from "@/pages/Home/Home.tsx";
-import Login from "@/pages/Login/Login.tsx";
 import type {AppRoute} from "@/routes/types.ts";
-import Dashboard from "@/pages/Dashboard";
-import {Forbidden} from "@/pages/Forbidden";
 import {Role} from "@/enums";
 import {AdminLayout} from "@/layouts";
+import {Dashboard, Forbidden, Home, Login, Project} from "@/pages";
 
 export const routes: AppRoute[] = [
     {
@@ -29,5 +26,12 @@ export const routes: AppRoute[] = [
         path: config.routes.forbidden,
         component: Forbidden,
         layout: null,
+    },
+    {
+        path: config.routes.project,
+        component: Project,
+        layout: AdminLayout,
+        auth: true,
+        roles: [Role.ADMIN]
     }
 ]

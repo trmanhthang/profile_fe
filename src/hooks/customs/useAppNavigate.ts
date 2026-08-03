@@ -9,5 +9,6 @@ export function useAppNavigate() {
         login: () => navigate(config.routes.login),
         dashboard: () => navigate(config.routes.dashboard),
         forbidden: () => navigate(config.routes.forbidden),
+        project: () => navigate(config.routes.project),
     }
 }

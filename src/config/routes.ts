@@ -3,6 +3,7 @@ const routes = {
     login: '/login',
     dashboard: '/dashboard',
     forbidden: '/forbidden',
+    project: '/project',
 }
 
 export default routes;

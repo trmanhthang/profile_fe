@@ -3,7 +3,6 @@ import type {RoleType} from "@/enums";
 import {persist} from "zustand/middleware";
 
 interface User {
-    accessToken: string;
     publicId: string;
     fullName: string;
     firstName: string;
@@ -12,9 +11,13 @@ interface User {
 }
 
 interface AuthState {
+    accessToken: string | null;
+
     user: User | null;
 
     setUser: (user: User | null) => void;
+
+    setAccessToken: (accessToken: string | null) => void;
 
     logout: () => void;
 }
@@ -22,10 +25,13 @@ interface AuthState {
 export const useAuthStore = create<AuthState>()(
     persist(
         (set) => ({
+            accessToken: null,
             user: null,
             setUser: (user) => set({user}),
+            setAccessToken: (accessToken) => set({accessToken}),
             logout: () => set({
                 user: null,
+                accessToken: null,
             }),
         }),
         {
