@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import {AdminMenu, Sidebar} from "@/layouts/components";
+import {AdminMenu, Sidebar} from "@/components/customs";
 
 function AdminLayout({children}: { children: ReactNode }) {
     return (

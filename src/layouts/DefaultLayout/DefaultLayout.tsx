@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import {Header} from "@/layouts/components";
+import {Header} from "@/components/customs";
 
 
 function DefaultLayout({children}: { children: ReactNode }) {

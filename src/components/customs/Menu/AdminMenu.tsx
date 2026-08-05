@@ -11,8 +11,8 @@ import {
     MessageCircleCheck, Scroll,
     UserRoundPen
 } from "lucide-react";
-import {NavMain, NavUser} from "@/layouts/components/Navbar";
 import {useAppNavigate} from "@/hooks/customs";
+import {NavMain, NavUser} from "@/components/customs/Navbar";
 
 function AdminMenu({...props}: ComponentProps<typeof Sidebar>) {
     const {project} = useAppNavigate();
